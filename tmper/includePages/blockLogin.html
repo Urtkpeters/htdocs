@@ -1,0 +1,111 @@
+<div id="loginShell" class="loginShell">
+	<div class="PWDIV">
+		<input id="PW" class="PW" type="password" name="PW" maxlength="50" onkeypress="keyStroke(event)" autocomplete="off" />
+	</div>
+</div>
+<style>
+	.loginShell
+	{
+		position: absolute;
+		top: 45%;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 150px;
+		transition: top 1s;
+	}
+	.PWDIV
+	{
+		margin: auto;
+	}
+	.PW
+	{
+		width: 100%;
+		height: 25px;
+		text-align: center;
+		color: #CCCCCC;
+		border-color: #CCCCCC;
+		background: #404040;
+		background-size: 200% 100%;
+		background-image: linear-gradient(to left, #b3b3b3 50%, #404040 50%);
+		transition: background-position 2s, opacity 1s ease-in-out;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		border-left-color: #b3b3b3;
+		border-left-style: solid;
+		border-left-width: 1px;
+		border-right-color: #b3b3b3;
+		border-right-style: solid;
+		border-right-width: 1px;
+		border-top-color: #b3b3b3;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		border-top-style: solid;
+		border-top-width: 1px;
+		opacity: 1;
+	}
+	.PWLoading
+	{
+		background-position: -100% 0;
+	}
+	.PWFading
+	{
+		opacity: 0;
+	}
+	.LSDropping
+	{
+		top: 70%;
+	}
+	.PW:focus
+	{
+		outline: none !important;
+	}
+</style>
+<script>
+	function getPageCode()
+	{
+		return 'login';
+	}
+	function urlQueryStrings(strURL, pageCode)
+	{
+		if(pageCode == 'login')
+		{
+			strURL += '&pw=' + $('#PW').val();
+		}
+		
+		return strURL;
+	}
+	function responseAction(responseData)
+	{
+		if(responseData == 'failure')
+		{
+			$('#PW').css('background-color', 'red');
+			
+			setTimeout(function()
+			{
+				$('#PW').css('background-color', '#404040');
+			}, 200);
+		}
+		else
+		{
+			$('#PW').addClass('PWLoading');
+			$('#PW').val('');
+			$('#PW').blur();
+			
+			setTimeout(function()
+			{
+				$('#PW').addClass('PWFading');
+				$('#loginShell').addClass('LSDropping');
+			}, 2000);
+			
+			setTimeout(function()
+			{
+				$('#baseDiv').empty();
+				$('#baseDiv').append(responseData);
+			}, 3250);
+		}
+	}
+</script>

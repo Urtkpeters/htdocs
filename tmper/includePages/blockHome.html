@@ -1,0 +1,50 @@
+<div id="homeShell" class="HSFading homeShell">
+	<div class="messageDiv">
+		<button class="homeButton" onclick="processPage('settings')">Settings</button>
+	</div>
+</div>
+<style>
+	.homeShell
+	{
+		position: absolute;
+		top:40%;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 300px;
+		transition: top 1s, opacity 1s ease-in-out;
+		opacity: 1;
+	}
+	.HSFading
+	{
+		top: 15%;
+		opacity: 0;
+	}
+	.messageDiv
+	{
+		width: 100%;
+		height: 100%;
+	}
+	.homeButton
+	{
+		color: #b3b3b3;
+		font-size: 50px;
+		font-family: arial;
+		text-align: center;
+		outline: none;
+		background-color: transparent;
+		border-color: transparent;
+		position: absolute;
+	}
+	.homeButton:hover
+	{
+		color: #c4c4c4;
+	}
+</style>
+<script>
+	setTimeout(function()
+	{
+		$('#homeShell').removeClass('HSFading');
+	}, 500);
+</script>

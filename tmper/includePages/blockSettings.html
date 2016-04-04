@@ -1,0 +1,65 @@
+<div id="backDiv" class="backDiv bdFading">
+	<button id="backButton" class="backButton">&lt; Back</button>
+</div>
+<div id="settingsShell" class="settingsShell ssFading">
+	<p>Password</p>
+	<input id="newPW" class="newPW" type="password" name="newPW" maxlength="50" onkeypress="keyStroke(event)" autocomplete="off" />
+	<input id="oldPW" class="oldPW" type="password" name="oldPW" maxlength="50" onkeypress="keyStroke(event)" autocomplete="off" />
+</div>
+<style>
+	.backDiv
+	{
+		position: absolute;
+		top:2%;
+		bottom: 0;
+		left: 2%;
+		right: 0;
+		width: 100px;
+		transition: top 1s, opacity 1s ease-in-out;
+		opacity: 1;
+	}
+	.bdFading
+	{
+		top: -13%;
+		opacity: 0;
+	}
+	.settingsShell
+	{
+		position: absolute;
+		top:40%;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+		width: 300px;
+		transition: top 1s, opacity 1s ease-in-out;
+		opacity: 1;
+	}
+	.settingsFading
+	{
+		top: 15%;
+		opacity: 0;
+	}
+	.backButton
+	{
+		color: #b3b3b3;
+		font-size: 20px;
+		font-family: arial;
+		text-align: center;
+		outline: none;
+		background-color: transparent;
+		border-color: transparent;
+		position: absolute;
+	}
+	.backButton:hover
+	{
+		color: #c4c4c4;
+	}
+</style>
+<script>
+	setTimeout(function()
+	{
+		$('#backDiv').removeClass('bdFading');
+		$('#settingsShell').removeClass('ssFading');
+	}, 500);
+</script>

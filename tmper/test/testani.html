@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<input id="filler" type="text"/>
+		<br /><br />
+		<button onclick="funkywinlke()">heya</button>
+		<style>
+		input {
+		  background-size: 200% 100%;
+		  background-image: linear-gradient(to left, red 50%, black 50%);
+		  transition: background-position 2s, opacity 1s ease-in-out;
+		  opacity: 1;
+		}
+		.fill
+		{
+			background-position: -100% 0;
+		}
+		.fade
+		{
+			opacity: 0;
+		}
+		</style>
+		<script>
+			function funkywinlke()
+			{
+				$('#filler').addClass('fill');
+				setTimeout(function()
+				{
+					$('#filler').addClass('fade');
+				}, 2250);
+			}
+		</script>
+	</body>
+</html>
